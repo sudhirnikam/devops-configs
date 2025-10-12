@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  my-postgresdb:
+    image: postgres:latest
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: world
