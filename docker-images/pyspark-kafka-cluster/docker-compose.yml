@@ -10,7 +10,7 @@ services:
       JUPYTER_PORT: 8888
       SPARK_UI_PORT: 4040
     volumes:
-      - spark_data:/data:rw
+      - ./spark_data:/home/jupyter:rw
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.9.4
@@ -29,7 +29,7 @@ services:
     ports:
       - 9092:9092
     volumes:
-      - spark_data:/data:rw
+      - ./spark_data:/data:rw
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
