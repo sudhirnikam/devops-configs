@@ -20,9 +20,11 @@ RUN apt-get install ca-certificates-java && \
     apt-get clean && \
     update-ca-certificates -f;
 
-# Insatall nano & vi
+# Insatall nano, vi and wget
 RUN apt-get install -y nano && \
-    apt-get install -y vim;
+    apt-get install -y vim && \
+    apt-get install -y wget && \
+    rm -rf /var/lib/apt/lists/*;
 
 # Setup JAVA_HOME -- useful for docker commandline
 ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/
@@ -56,7 +58,7 @@ RUN pip install jupyterlab==4.4.9
 RUN pip install pyspark==3.5.7
 RUN pip install kafka-python==2.2.10
 RUN pip install delta-spark==3.3.2
-RUN pip install boto3=1.40.50
+RUN pip install boto3==1.40.50
 
 # Change to working directory and clone git repo
 WORKDIR /home/jupyter
