@@ -169,6 +169,8 @@ services:
     container_name: datalake-metabase
     ports:
       - "3000:3000"
+    volumes:
+      - metabase-data:/metabase.db
     environment:
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: gold_db
@@ -184,6 +186,7 @@ services:
 volumes:
   minio-data:
   postgres-data:
+  metabase-data:
 
 networks:
   datalake-net:
