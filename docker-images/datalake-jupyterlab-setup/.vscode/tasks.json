@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run PySpark Script in Container",
+      "type": "shell",
+      "command": "docker-compose exec -T jupyterlab python /home/jovyan/scripts/${fileBasename}",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run etl.py in Container",
+      "type": "shell",
+      "command": "docker compose exec -T jupyterlab python /home/jovyan/scripts/etl.py",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Open JupyterLab Terminal",
+      "type": "shell",
+      "command": "docker compose exec jupyterlab bash",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated"
+      }
+    }
+  ]
+}
